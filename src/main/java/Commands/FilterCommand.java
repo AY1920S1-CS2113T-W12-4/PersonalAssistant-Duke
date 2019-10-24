@@ -1,7 +1,6 @@
 package Commands;
+import BetterDukeInterface.*;
 
-import Interface.Storage;
-import Interface.Ui;
 import Tasks.Task;
 import Tasks.TaskList;
 
@@ -26,7 +25,7 @@ public class FilterCommand extends  Command{
      */
 
     @Override
-    public String execute(TaskList events, TaskList deadlines, Ui ui, Storage storage) throws Exception {
+    public String execute(LookupTable LT,TaskList events, TaskList deadlines, Ui ui, Storage storage) throws Exception {
         TaskList list = new TaskList();
         ArrayList<Task> event = events.getList();
         ArrayList<Task> deadline = deadlines.getList();

@@ -1,4 +1,4 @@
-package Interface;
+package BetterDukeInterface;
 /**
  * Represents the exception specifically catered to
  * Duke program should any error occur

@@ -1,7 +1,8 @@
 package Commands;
+import BetterDukeInterface.LookupTable;
 import JavaFx.AlertBox;
 import Tasks.*;
-import Interface.*;
+import BetterDukeInterface.*;
 import javafx.scene.control.Alert;
 
 import java.io.FileNotFoundException;
@@ -32,7 +33,7 @@ public class AddCommand extends Command {
      * @return This returns the method in the Ui object which returns the string to display add task message
      */
     @Override
-    public String execute(TaskList events, TaskList deadlines, Ui ui, Storage storage) throws FileNotFoundException {
+    public String execute(LookupTable LT,TaskList events, TaskList deadlines, Ui ui, Storage storage) throws FileNotFoundException {
         String out = "";
         int con = 0;
         boolean isOK = true;

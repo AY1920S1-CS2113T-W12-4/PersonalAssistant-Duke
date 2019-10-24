@@ -1,7 +1,6 @@
 package Commands;
 import Tasks.*;
-import Interface.*;
-
+import BetterDukeInterface.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -36,7 +35,7 @@ public class SnoozeCommand extends Command{
      * @return This returns the method in the Ui object which returns the string to display snooze message
      */
     @Override
-    public String execute(TaskList events, TaskList deadlines, Ui ui, Storage storage) throws DukeException, FileNotFoundException {
+    public String execute(LookupTable LT,TaskList events, TaskList deadlines, Ui ui, Storage storage) throws DukeException, FileNotFoundException {
         TaskList list = new TaskList();
         ArrayList<Task> eventsList = events.getList();
         ArrayList<Task> deadlinesList = deadlines.getList();

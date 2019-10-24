@@ -1,6 +1,6 @@
 package Commands;
 import Tasks.*;
-import Interface.*;
+import BetterDukeInterface.*;
 
 import java.io.FileNotFoundException;
 
@@ -29,7 +29,7 @@ public class DoneCommand extends Command {
      * @throws DukeException On ArrayList out of bound error
      */
     @Override
-    public String execute(TaskList events, TaskList deadlines, Ui ui, Storage storage) throws DukeException, FileNotFoundException {
+    public String execute(LookupTable LT,TaskList events, TaskList deadlines, Ui ui, Storage storage) throws DukeException, FileNotFoundException {
         /*if(index >= 0 && index < todos.taskListSize()) {
             todos.markAsDone(index);
             return ui.showDone(todos.getTask(index));

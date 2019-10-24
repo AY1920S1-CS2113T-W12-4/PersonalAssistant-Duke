@@ -1,5 +1,5 @@
 package JavaFx;
-import Interface.*;
+import BetterDukeInterface.*;
 import Tasks.Task;
 import Tasks.TaskList;
 import javafx.animation.Animation;

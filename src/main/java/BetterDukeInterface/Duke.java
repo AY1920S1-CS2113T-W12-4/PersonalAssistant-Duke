@@ -1,4 +1,4 @@
-package Interface;
+package BetterDukeInterface;
 import Tasks.*;
 import Commands.*;
 import javafx.application.Application;
@@ -18,7 +18,14 @@ public class Duke extends Application {
     private final TaskList events;
     private final TaskList deadlines;
     private final Ui ui;
-
+    private static LookupTable LT;
+    static {
+        try {
+            LT = new LookupTable();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * Creates Duke object.
      */
@@ -28,6 +35,7 @@ public class Duke extends Application {
         storage = new Storage();
         events = new TaskList();
         deadlines = new TaskList();
+
         try {
             storage.readDeadlineList(deadlines);
             storage.readEventList(events);
@@ -49,7 +57,7 @@ public class Duke extends Application {
     private String run(String input) {
         try {
             Command c = Parser.parse(input);
-            return c.execute(events, deadlines, ui, storage);
+            return c.execute(LT,events, deadlines,ui, storage);
         } catch (DukeException e) {
             return ui.showError(e);
         } catch (Exception e) {

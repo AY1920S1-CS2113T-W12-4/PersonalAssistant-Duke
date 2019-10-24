@@ -1,4 +1,4 @@
-package Interface;
+package BetterDukeInterface;
 
 
 import java.io.*;

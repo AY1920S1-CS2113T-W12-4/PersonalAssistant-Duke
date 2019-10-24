@@ -1,4 +1,4 @@
-package Interface;
+package BetterDukeInterface;
 import Commands.*;
 import JavaFx.AlertBox;
 import Tasks.*;

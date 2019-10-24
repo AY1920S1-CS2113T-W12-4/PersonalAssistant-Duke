@@ -1,4 +1,4 @@
-package Interface;
+package BetterDukeInterface;
 import Tasks.*;
 
 import java.util.ArrayList;

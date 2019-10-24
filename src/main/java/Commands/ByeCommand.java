@@ -1,6 +1,6 @@
 package Commands;
 import Tasks.*;
-import Interface.*;
+import BetterDukeInterface.*;
 /**
  * Represents the command to end the program.
  */
@@ -18,7 +18,7 @@ public class ByeCommand extends Command {
      * @throws Exception On file not found error
      */
     @Override
-    public String execute(TaskList events, TaskList deadlines, Ui ui, Storage storage) throws Exception {
+    public String execute(LookupTable LT,TaskList events, TaskList deadlines, Ui ui, Storage storage) throws Exception {
         storage.updateEventList(events);
         storage.updateDeadlineList(deadlines);
         return ui.showBye();

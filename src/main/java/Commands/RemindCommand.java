@@ -1,8 +1,6 @@
 package Commands;
 
-import Interface.DukeException;
-import Interface.Storage;
-import Interface.Ui;
+import BetterDukeInterface.*;
 import Tasks.Task;
 import Tasks.TaskList;
 import javafx.animation.KeyFrame;
@@ -53,7 +51,7 @@ public class RemindCommand extends Command {
      * @throws ParseException On date parsing error
      */
     @Override
-    public String execute(TaskList events, TaskList deadlines, Ui ui, Storage storage) throws DukeException, FileNotFoundException {
+    public String execute(LookupTable LT,TaskList events, TaskList deadlines, Ui ui, Storage storage) throws DukeException, FileNotFoundException {
         HashMap<String, HashMap<String, ArrayList<Task>>> deadlineMap = deadlines.getMap();
         HashMap<Date, Task> reminderMap = storage.getReminderMap();
         Date currentDate = new Date();

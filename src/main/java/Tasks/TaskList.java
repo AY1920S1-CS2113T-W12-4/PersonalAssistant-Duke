@@ -35,7 +35,7 @@ public class TaskList {
     }
 
     public ArrayList<Task> getListFromDate(Task task) {
-        return this.map.get(task.getModCode()).get(task.getDateTime());
+        return this.map.get(task.getModCode()).get(task.getDate());
     }
 
     public HashMap<String, ArrayList<Task>> getMapFromModCode(Task task) {
@@ -45,14 +45,14 @@ public class TaskList {
     public void addTask(Task task){
         this.list.add(task);
         if (this.map.containsKey(task.getModCode())) {
-            if (!this.map.get(task.getModCode()).containsKey(task.getDateTime())) {
-                map.get(task.getModCode()).put(task.getDateTime(), new ArrayList<>());
+            if (!this.map.get(task.getModCode()).containsKey(task.getDate())) {
+                map.get(task.getModCode()).put(task.getDate(), new ArrayList<>());
             }
         } else {
             this.map.put(task.getModCode(), new HashMap<>());
-            this.map.get(task.getModCode()).put(task.getDateTime(), new ArrayList<>());
+            this.map.get(task.getModCode()).put(task.getDate(), new ArrayList<>());
         }
-        this.map.get(task.getModCode()).get(task.getDateTime()).add(task);
+        this.map.get(task.getModCode()).get(task.getDate()).add(task);
     }
     //Do not use this
     public void removeTask(int index){
@@ -60,9 +60,9 @@ public class TaskList {
     }
 
     public void removeTask(Task task) {
-        for(Task taskInList : this.map.get(task.getModCode()).get(task.getDateTime())) {
+        for(Task taskInList : this.map.get(task.getModCode()).get(task.getDate())) {
             if(taskInList.getDescription().equals(task.getDescription())) {
-                this.map.get(task.getModCode()).get(task.getDateTime()).remove(taskInList);
+                this.map.get(task.getModCode()).get(task.getDate()).remove(taskInList);
                 break;
             }
         }
@@ -85,8 +85,8 @@ public class TaskList {
     }
 
     public void setReminder(Task task, String time, boolean reminder){
-        for (Task taskInList : this.map.get(task.getModCode()).get(task.getDateTime())) {
-            if (taskInList.equals(task)) {
+        for (Task taskInList : this.map.get(task.getModCode()).get(task.getDate())) {
+            if (taskInList.getDescription().equals(task.getDescription())) {
                 taskInList.setRemindTime(time);
                 taskInList.setReminder(reminder);
                 break;
@@ -278,7 +278,7 @@ public class TaskList {
         try {
             if (end == dateString) {
                 Task temp = list.get(index);
-                list.add(new Deadline(temp.getDescription(), dateString));
+                list.add(new Deadline(temp.getDescription(), dateString, start));
                 list.remove(index);
             } else {
                 Task temp = list.get(index);
